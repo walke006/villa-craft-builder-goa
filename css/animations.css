@@ -1,0 +1,111 @@
+/* ==========================================================================
+   VILLACRAFT BUILDERS - ANIMATIONS & TRANSITIONS SYSTEM
+   ========================================================================== */
+
+/* Fade & Slide Reveal Triggers */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-zoom {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-zoom.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger Delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* Ken Burns Subtle Slow Zoom */
+.ken-burns {
+  animation: kenBurnsAnimation 20s ease infinite alternate;
+}
+
+@keyframes kenBurnsAnimation {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+/* Pulse Animation for Network Nodes */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(200, 90, 50, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(200, 90, 50, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(200, 90, 50, 0);
+  }
+}
+
+.pulse-node {
+  animation: pulseGlow 2.5s infinite;
+}
+
+/* Glowing Border Shift for Dark Cards */
+@keyframes borderGlow {
+  0% { border-color: rgba(212, 175, 55, 0.2); }
+  50% { border-color: rgba(212, 175, 55, 0.6); }
+  100% { border-color: rgba(212, 175, 55, 0.2); }
+}
+
+.glowing-border {
+  animation: borderGlow 4s infinite ease-in-out;
+}
+
+/* Ripple button animation */
+.ripple {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-effect 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
